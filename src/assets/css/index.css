@@ -1,0 +1,47 @@
+@import url(./normalize.css);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 100;
+    src: local("Pretendard-Light"), url("../fonts/Pretendard-Light.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Pretendard-Regular"), url("../fonts/Pretendard-Regular.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 500;
+    src: local("Pretendard-Medium"), url("../fonts/Pretendard-Medium.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 700;
+    src: local("Pretendard-Bold"), url("../fonts/Pretendard-Bold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 900;
+    src: local("Pretendard-ExtraBold"), url("../fonts/Pretendard-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Urbanist";
+    font-style: normal;
+    src: local("Urbanist-VariableFont_wght"), url("../fonts/Urbanist-VariableFont_wght.ttf") format("truetype");
+}
+
+body {
+    font-family: "Pretendard Variable", "Pretendard", "Urbanist", "맑은 고딕", "malgun gothic", "Apple SD Gothic Neo", sans-serif;
+    font-size: 16px;
+    margin: 0;
+}

@@ -1,20 +1,21 @@
 import { Link } from "react-router";
-import logo from "@/assets/images/logo.svg";
+// import logo from "@/assets/images/logo.svg";
+import logo from "@/assets/images/logo.png";
 import emailIcon from "@/assets/images/email.svg";
 
 export default function Header() {
     return (
-        <header className="sticky top-0 bg-white">
-            <h1>
+        <header className="fixed left-0 right-0 top-0 z-[10] bg-[#FFFFFF99]">
+            <h1 className="absolute left-[40px] top-1/2 -translate-y-1/2">
                 <Link
                     to="/"
-                    className="absolute left-[40px] top-1/2 -translate-y-1/2 indent-[-9999em] block w-[40px] h-[44px] bg-no-repeat"
+                    className="inline-block indent-[-9999em] w-[40px] h-[44px] bg-no-repeat"
                     style={{ backgroundImage: `url(${logo})` }}
                 >
                     likeweb
                 </Link>
             </h1>
-            <nav className="text-center py-[28px]">
+            <nav className="flex justify-center py-[28px] leading-[24px]">
                 <Link to="work" className="uppercase px-[40px] text-[20px] font-[700] font-Urbanist">
                     Work
                 </Link>

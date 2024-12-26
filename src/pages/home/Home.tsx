@@ -53,128 +53,140 @@ export default function Home() {
                         </button>
                     </div>
 
-                    <ul className="flex mr-[100px] h-full">
+                    <ul className="flex h-full absolute top-0 right-[100px]">
                         <li className="h-full border-l border-[#dddddd] w-[224px] hover:w-[384px] transition-all ease-in-out delay-50 group relative overflow-hidden hover:shadow-[-8px_0px_30px_0px_#0000001F] hover:overflow:auto">
-                            <div className="h-full flex flex-col items-center justify-center group-hover:hidden">
-                                <p className="text-[18px]">사용자를 생각한</p>
-                                <strong className="uppercase text-[24px] mt-[8px] mb-[24px]">ui/ux</strong>
-                                <img src={uiuxIcon} alt="" />
-                            </div>
-                            <div
-                                className="absolute top-0 bottom-0 left-full group-hover:left-0 w-[384px] bg-no-repeat bg-cover"
-                                style={{ backgroundImage: `url(${uiuxBg})` }}
-                            >
+                            <div className="absolute inset-0">
+                                <div className="h-full flex flex-col items-center justify-center group-hover:hidden">
+                                    <p className="text-[18px]">사용자를 생각한</p>
+                                    <strong className="uppercase text-[24px] mt-[8px] mb-[24px]">ui/ux</strong>
+                                    <img src={uiuxIcon} alt="" />
+                                </div>
                                 <div
-                                    className="absolute top-0 left-full w-full group-hover:left-0 h-[80px] overflow-hidden scale-[1.1]"
-                                    style={{ filter: "blur(5px)", backgroundImage: "inherit" }}
-                                />
-                                <img src={uiuxContentImg} alt="" width={384} height={620} className="mt-[100px]" />
+                                    className="absolute inset-0 transition-all translate-x-full group-hover:translate-x-0 w-[384px] bg-no-repeat bg-cover"
+                                    style={{ backgroundImage: `url(${uiuxBg})` }}
+                                >
+                                    <div
+                                        className="absolute top-0 left-full w-full group-hover:left-0 h-[80px] overflow-hidden scale-[1.1]"
+                                        style={{ filter: "blur(5px)", backgroundImage: "inherit" }}
+                                    />
+                                    <img src={uiuxContentImg} alt="" width={384} height={620} className="mt-[100px]" />
 
-                                <div className="flex justify-center">
-                                    <div>
-                                        <div className="flex gap-[30px] mb-[30px]">
-                                            <strong className="uppercase text-[36px] font-[700] font-Urbanist text-white">ui/ux</strong>
-                                            <img src={arrow} alt="" width={22} height={22} />
+                                    <div className="flex justify-center">
+                                        <div>
+                                            <div className="flex gap-[30px] mb-[30px]">
+                                                <strong className="uppercase text-[36px] font-[700] font-Urbanist text-white">ui/ux</strong>
+                                                <img src={arrow} alt="" width={22} height={22} />
+                                            </div>
+                                            <p className="text-[#dddddd] text-[18px] leading-[29px]">
+                                                사용자의 요구와 행동을 고려하여
+                                                <br />
+                                                최적의 사용 경험을 제공합니다.
+                                            </p>
                                         </div>
-                                        <p className="text-[#dddddd] text-[18px] leading-[29px]">
-                                            사용자의 요구와 행동을 고려하여
-                                            <br />
-                                            최적의 사용 경험을 제공합니다.
-                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </li>
 
                         <li className="h-full border-l border-[#dddddd] w-[224px] hover:w-[384px] transition-all ease-in-out delay-50 group relative overflow-hidden hover:shadow-[-8px_0px_30px_0px_#0000001F] hover:overflow:auto">
-                            <div className="h-full flex flex-col items-center justify-center group-hover:hidden">
-                                <p className="text-[18px]">고객의 비즈니스를 생각한</p>
-                                <strong className="uppercase text-[24px] mt-[8px] mb-[24px]">solution</strong>
-                                <img src={solutionIcon} alt="" />
-                            </div>
-                            <div
-                                className="absolute top-0 bottom-0 left-full group-hover:left-0 w-[384px] bg-no-repeat bg-cover"
-                                style={{ backgroundImage: `url(${solutionBg})` }}
-                            >
+                            <div className="absolute inset-0">
+                                <div className="h-full flex flex-col items-center justify-center group-hover:hidden">
+                                    <p className="text-[18px]">고객의 비즈니스를 생각한</p>
+                                    <strong className="uppercase text-[24px] mt-[8px] mb-[24px]">solution</strong>
+                                    <img src={solutionIcon} alt="" />
+                                </div>
                                 <div
-                                    className="absolute top-0 left-full w-full group-hover:left-0 h-[80px] overflow-hidden scale-[1.1]"
-                                    style={{ filter: "blur(5px)", backgroundImage: "inherit" }}
-                                />
-                                <img src={solutionContentImg} alt="" width={864} height={620} className="mt-[100px]" />
+                                    className="absolute top-0 bottom-0 left-full group-hover:left-0 w-[384px] bg-no-repeat bg-cover"
+                                    style={{ backgroundImage: `url(${solutionBg})` }}
+                                >
+                                    <div
+                                        className="absolute top-0 left-full w-full group-hover:left-0 h-[80px] overflow-hidden scale-[1.1]"
+                                        style={{ filter: "blur(5px)", backgroundImage: "inherit" }}
+                                    />
+                                    <img src={solutionContentImg} alt="" width={864} height={620} className="mt-[100px]" />
 
-                                <div className="flex justify-center">
-                                    <div>
-                                        <div className="flex gap-[30px] mb-[30px]">
-                                            <strong className="uppercase text-[36px] font-[700] font-Urbanist text-white">solution</strong>
-                                            <img src={arrow} alt="" width={22} height={22} />
+                                    <div className="flex justify-center">
+                                        <div>
+                                            <div className="flex gap-[30px] mb-[30px]">
+                                                <strong className="uppercase text-[36px] font-[700] font-Urbanist text-white">
+                                                    solution
+                                                </strong>
+                                                <img src={arrow} alt="" width={22} height={22} />
+                                            </div>
+                                            <p className="text-[#dddddd] text-[18px] leading-[29px]">
+                                                비즈니스 과제를 해결하기 위한
+                                                <br />
+                                                맞춤형 IT 솔루션을 제공합니다.
+                                            </p>
                                         </div>
-                                        <p className="text-[#dddddd] text-[18px] leading-[29px]">
-                                            비즈니스 과제를 해결하기 위한
-                                            <br />
-                                            맞춤형 IT 솔루션을 제공합니다.
-                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </li>
 
                         <li className="h-full border-l border-[#dddddd] w-[224px] hover:w-[384px] transition-all ease-in-out delay-50 group relative overflow-hidden hover:shadow-[-8px_0px_30px_0px_#0000001F] hover:overflow:auto">
-                            <div className="h-full flex flex-col items-center justify-center group-hover:hidden">
-                                <p className="text-[18px]">사용자 경험에 최적화된</p>
-                                <strong className="uppercase text-[24px] mt-[8px] mb-[24px]">website</strong>
-                                <img src={websiteIcon} alt="" />
-                            </div>
-                            <div
-                                className="absolute top-0 bottom-0 left-full group-hover:left-0 w-[384px] bg-no-repeat bg-cover"
-                                style={{ backgroundImage: `url(${websiteBg})` }}
-                            >
+                            <div className="absolute inset-0">
+                                <div className="h-full flex flex-col items-center justify-center group-hover:hidden">
+                                    <p className="text-[18px]">사용자 경험에 최적화된</p>
+                                    <strong className="uppercase text-[24px] mt-[8px] mb-[24px]">website</strong>
+                                    <img src={websiteIcon} alt="" />
+                                </div>
                                 <div
-                                    className="absolute top-0 left-full w-full group-hover:left-0 h-[80px] overflow-hidden scale-[1.1]"
-                                    style={{ filter: "blur(5px)", backgroundImage: "inherit" }}
-                                />
-                                <img src={websiteContentImg} alt="" width={864} height={620} className="mt-[100px]" />
+                                    className="absolute top-0 bottom-0 left-full group-hover:left-0 w-[384px] bg-no-repeat bg-cover"
+                                    style={{ backgroundImage: `url(${websiteBg})` }}
+                                >
+                                    <div
+                                        className="absolute top-0 left-full w-full group-hover:left-0 h-[80px] overflow-hidden scale-[1.1]"
+                                        style={{ filter: "blur(5px)", backgroundImage: "inherit" }}
+                                    />
+                                    <img src={websiteContentImg} alt="" width={864} height={620} className="mt-[100px]" />
 
-                                <div className="flex justify-center">
-                                    <div>
-                                        <div className="flex gap-[30px] mb-[30px]">
-                                            <strong className="uppercase text-[36px] font-[700] font-Urbanist text-white">website</strong>
-                                            <img src={arrow} alt="" width={22} height={22} />
+                                    <div className="flex justify-center">
+                                        <div>
+                                            <div className="flex gap-[30px] mb-[30px]">
+                                                <strong className="uppercase text-[36px] font-[700] font-Urbanist text-white">
+                                                    website
+                                                </strong>
+                                                <img src={arrow} alt="" width={22} height={22} />
+                                            </div>
+                                            <p className="text-[#dddddd] text-[18px] leading-[29px]">
+                                                사용자 친화적인 웹사이트 구축을 통해
+                                                <br /> 브랜드와 고객의 소통을 강화합니다.
+                                            </p>
                                         </div>
-                                        <p className="text-[#dddddd] text-[18px] leading-[29px]">
-                                            사용자 친화적인 웹사이트 구축을 통해
-                                            <br /> 브랜드와 고객의 소통을 강화합니다.
-                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </li>
 
                         <li className="h-full border-l border-r border-[#dddddd] w-[224px] hover:w-[384px] transition-all ease-in-out delay-50 group relative overflow-hidden hover:shadow-[-8px_0px_30px_0px_#0000001F] hover:overflow:auto">
-                            <div className="h-full flex flex-col items-center justify-center">
-                                <p className="text-[18px]">편리한 서비스를 위한</p>
-                                <strong className="uppercase text-[24px] mt-[8px] mb-[24px]">kiosk</strong>
-                                <img src={kioskIcon} alt="kiosk" />
-                            </div>
-                            <div
-                                className="absolute top-0 bottom-0 left-full group-hover:left-0 w-[384px] bg-no-repeat bg-cover"
-                                style={{ backgroundImage: `url(${kioskBg})` }}
-                            >
+                            <div className="absolute inset-0">
+                                <div className="h-full flex flex-col items-center justify-center group-hover:hidden">
+                                    <p className="text-[18px]">편리한 서비스를 위한</p>
+                                    <strong className="uppercase text-[24px] mt-[8px] mb-[24px]">kiosk</strong>
+                                    <img src={kioskIcon} alt="kiosk" />
+                                </div>
                                 <div
-                                    className="absolute top-0 left-full w-full group-hover:left-0 h-[80px] overflow-hidden scale-[1.1]"
-                                    style={{ filter: "blur(5px)", backgroundImage: "inherit" }}
-                                />
-                                <img src={kioskContentImg} alt="" width={864} height={620} className="mt-[100px]" />
+                                    className="absolute top-0 bottom-0 left-full group-hover:left-0 w-[384px] bg-no-repeat bg-cover"
+                                    style={{ backgroundImage: `url(${kioskBg})` }}
+                                >
+                                    <div
+                                        className="absolute top-0 left-full w-full group-hover:left-0 h-[80px] overflow-hidden scale-[1.1]"
+                                        style={{ filter: "blur(5px)", backgroundImage: "inherit" }}
+                                    />
+                                    <img src={kioskContentImg} alt="" width={864} height={620} className="mt-[100px]" />
 
-                                <div className="flex justify-center">
-                                    <div>
-                                        <div className="flex gap-[30px] mb-[30px]">
-                                            <strong className="uppercase text-[36px] font-[700] font-Urbanist text-white">kiosk</strong>
-                                            <img src={arrow} alt="" width={22} height={22} />
+                                    <div className="flex justify-center">
+                                        <div>
+                                            <div className="flex gap-[30px] mb-[30px]">
+                                                <strong className="uppercase text-[36px] font-[700] font-Urbanist text-white">kiosk</strong>
+                                                <img src={arrow} alt="" width={22} height={22} />
+                                            </div>
+                                            <p className="text-[#dddddd] text-[18px] leading-[29px]">
+                                                효율적이고 직관적인 키오스크 솔루션으로
+                                                <br /> 고객의 셀프 서비스 경험을 개선합니다.
+                                            </p>
                                         </div>
-                                        <p className="text-[#dddddd] text-[18px] leading-[29px]">
-                                            효율적이고 직관적인 키오스크 솔루션으로
-                                            <br /> 고객의 셀프 서비스 경험을 개선합니다.
-                                        </p>
                                     </div>
                                 </div>
                             </div>

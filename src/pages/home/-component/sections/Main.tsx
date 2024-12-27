@@ -17,9 +17,11 @@ import arrow from "@/assets/images/arrow_outward_orange.svg";
 import bubble from "@/assets/images/main_title_bubble_orange.svg";
 import start from "@/assets/images/ic_start_circle_orange.svg";
 
-type SectionProps = {};
+type SectionProps = {
+    onToggle: (section: any) => void;
+};
 
-const Main = forwardRef<HTMLDivElement, SectionProps>(({}, ref) => {
+const Main = forwardRef<HTMLDivElement, SectionProps>(({ onToggle }, ref) => {
     return (
         <div ref={ref}>
             <Section id="main" bg={bg} className="relative flex flex-1 bg-cover">

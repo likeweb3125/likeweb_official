@@ -10,9 +10,10 @@ type SectionProps = {
     bg?: string;
     className?: string;
     children: ReactNode;
+    onToggle?: (el?: string) => void;
 };
 
-export default function Section({ id, bg, className, children }: SectionProps) {
+export default function Section({ id, bg, className, children, onToggle }: SectionProps) {
     const headingRef = useRef<HTMLHeadingElement | null>(null);
 
     useEffect(() => {
@@ -32,6 +33,13 @@ export default function Section({ id, bg, className, children }: SectionProps) {
                     start: "top 60%",
                     end: "bottom 0%",
                     toggleActions: "Play none restart reverse",
+                    onToggle: self => {
+                        console.log(self);
+                        if (self.isActive) {
+                            onToggle && onToggle(self.trigger?.innerHTML);
+                        }
+                    },
+                    // onToggle: self => console.log("toggled, self:", self.trigger?.innerHTML),
                     // onToggle: self => console.log("toggled, isActive:", self.isActive),
                     // onUpdate: self => {
                     //     console.log("progress:", self.progress.toFixed(3), "direction:", self.direction, "velocity", self.getVelocity());

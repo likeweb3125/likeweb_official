@@ -1,12 +1,14 @@
 import { forwardRef } from "react";
 import Section from "../Section";
 
-type SectionProps = {};
+type SectionProps = {
+    onToggle: (section: any) => void;
+};
 
-const WithLikeweb = forwardRef<HTMLDivElement, SectionProps>(({}, ref) => {
+const WithLikeweb = forwardRef<HTMLDivElement, SectionProps>(({ onToggle }, ref) => {
     return (
         <div ref={ref}>
-            <Section id="with-likeweb">
+            <Section id="withlikeweb" onToggle={onToggle}>
                 <p className="leaindg-[90px] text-[56px] font-[700] text-center w-[410] mx-auto">
                     새로운 가치를 위해
                     <br />

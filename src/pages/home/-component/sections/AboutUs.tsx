@@ -6,9 +6,11 @@ import bgAboutUs2 from "@/assets/images/bg_aboutus_02.png";
 import bgAboutUs3 from "@/assets/images/bg_aboutus_03.png";
 import bgAboutUs4 from "@/assets/images/bg_aboutus_04.png";
 
-type SectionProps = {};
+type SectionProps = {
+    onToggle: (section: any) => void;
+};
 
-const AboutUs = forwardRef<HTMLDivElement, SectionProps>(({}, ref) => {
+const AboutUs = forwardRef<HTMLDivElement, SectionProps>(({ onToggle }, ref) => {
     const card1Ref = useRef<HTMLDivElement | null>(null);
     const card2Ref = useRef<HTMLDivElement | null>(null);
     const card3Ref = useRef<HTMLDivElement | null>(null);
@@ -16,7 +18,12 @@ const AboutUs = forwardRef<HTMLDivElement, SectionProps>(({}, ref) => {
 
     return (
         <div ref={ref}>
-            <Section id="about-us" bg={bgAboutUs1} className="bg-fixed bg-no-repeat bg-cover relative flex-1 flex justify-between">
+            <Section
+                id="aboutus"
+                bg={bgAboutUs1}
+                onToggle={onToggle}
+                className="bg-fixed bg-no-repeat bg-cover relative flex-1 flex justify-between"
+            >
                 <div className="mt-[60px]">
                     <div className="sticky top-[220px]">
                         <p className="text-[#F8F9FB] leaindg-[90px] mb-[28px] text-[56px] font-[700]">

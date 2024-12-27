@@ -1,12 +1,14 @@
 import { forwardRef } from "react";
 import Section from "../Section";
 
-type SectionProps = {};
+type SectionProps = {
+    onToggle: (section: any) => void;
+};
 
-const Solution = forwardRef<HTMLDivElement, SectionProps>(({}, ref) => {
+const Solution = forwardRef<HTMLDivElement, SectionProps>(({ onToggle }, ref) => {
     return (
         <div ref={ref}>
-            <Section id="solution">
+            <Section id="solution" onToggle={onToggle}>
                 <p className=" leaindg-[90px] text-[56px] font-[700]">
                     맞춤형 솔루션으로
                     <br />

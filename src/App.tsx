@@ -9,15 +9,13 @@ import Footer from "@/components/layout/Footer";
 function App() {
     return (
         <BrowserRouter>
-            <div className="h-screen flex flex-col">
-                <Header />
-                <Routes>
-                    <Route index element={<Home />} />
-                    <Route path="work" element={<Work />} />
-                    <Route path="solution" element={<Solution />} />
-                    <Route path="contact" element={<Contact />} />
-                </Routes>
-            </div>
+            <Header />
+            <Routes>
+                <Route index element={<Home />} />
+                <Route path="work" element={<Work />} />
+                <Route path="solution" element={<Solution />} />
+                <Route path="contact" element={<Contact />} />
+            </Routes>
             <Footer />
         </BrowserRouter>
     );

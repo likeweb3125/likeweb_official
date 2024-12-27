@@ -1,5 +1,3 @@
 export default function Solution() {
-  return (
-    <>Solution</>
-  )
+    return <>Solution</>;
 }

@@ -16,13 +16,19 @@ export default function Header() {
                 </Link>
             </h1>
             <nav className="flex justify-center py-[28px] leading-[24px]">
-                <Link to="work" className="uppercase px-[40px] text-[20px] font-[700] font-Urbanist">
+                <Link to="work" className="uppercase px-[40px] text-[20px] font-[700] font-Urbanist hover:text-[#FD5B1D] hover:underline">
                     Work
                 </Link>
-                <Link to="solution" className="uppercase px-[40px] text-[20px] font-[700] font-Urbanist">
+                <Link
+                    to="solution"
+                    className="uppercase px-[40px] text-[20px] font-[700] font-Urbanist hover:text-[#FD5B1D] hover:underline"
+                >
                     Solution
                 </Link>
-                <Link to="contact" className="uppercase px-[40px] text-[20px] font-[700] font-Urbanist">
+                <Link
+                    to="contact"
+                    className="uppercase px-[40px] text-[20px] font-[700] font-Urbanist hover:text-[#FD5B1D] hover:underline"
+                >
                     Contact
                 </Link>
             </nav>

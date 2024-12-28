@@ -3,7 +3,7 @@ import arrowUp from "@/assets/images/arrow_up_black.svg";
 const navigation = [
     {
         number: "01",
-        label: "aboutus",
+        label: "aboutusmain",
         visualTitle: (
             <>
                 About

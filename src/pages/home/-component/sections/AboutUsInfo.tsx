@@ -10,7 +10,7 @@ type SectionProps = {
     onToggle: (section: any) => void;
 };
 
-const AboutUs = forwardRef<HTMLDivElement, SectionProps>(({ onToggle }, ref) => {
+const AboutUsInfo = forwardRef<HTMLDivElement, SectionProps>(({ onToggle }, ref) => {
     const card1Ref = useRef<HTMLDivElement | null>(null);
     const card2Ref = useRef<HTMLDivElement | null>(null);
     const card3Ref = useRef<HTMLDivElement | null>(null);
@@ -19,7 +19,7 @@ const AboutUs = forwardRef<HTMLDivElement, SectionProps>(({ onToggle }, ref) => 
     return (
         <div ref={ref}>
             <Section
-                id="aboutus"
+                id="aboutusinfo"
                 bg={bgAboutUs1}
                 onToggle={onToggle}
                 className="bg-fixed bg-no-repeat bg-cover relative flex-1 flex justify-between"
@@ -126,4 +126,4 @@ const AboutUs = forwardRef<HTMLDivElement, SectionProps>(({ onToggle }, ref) => 
     );
 });
 
-export default AboutUs;
+export default AboutUsInfo;

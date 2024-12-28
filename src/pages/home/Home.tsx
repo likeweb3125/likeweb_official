@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import SideNavigate from "./-component/SideNavigate";
-import Main from "./-component/sections/Main";
-import AboutUs from "./-component/sections/AboutUs";
+import AboutUsMain from "./-component/sections/AboutUsMain";
+import AboutUsInfo from "./-component/sections/AboutUsInfo";
 import Solution from "./-component/sections/Solution";
 import UiUx from "./-component/sections/UiUx";
 import WhatWeDo from "./-component/sections/WhatWeDo";
@@ -14,7 +14,7 @@ const containerStyle = (
         .container {
             position: relative;
             overflow-y: auto;
-            overscroll-behavior-y: contain;
+            overscroll-behavior-y: smooth;
             scroll-snap-type: y mandatory;
             height: 100vh;
             min-width: 100%;
@@ -81,10 +81,10 @@ export default function Home() {
                 // scrollTo={scrollTo}
             />
 
-            <Main ref={main} onToggle={onToggle} />
+            <AboutUsMain ref={main} onToggle={onToggle} />
 
-            {/* <AboutUs ref={aboutusRef} /> */}
-            <AboutUs onToggle={onToggle} />
+            {/* <AboutUsInfo ref={aboutusRef} /> */}
+            <AboutUsInfo onToggle={onToggle} />
 
             <Solution ref={solution} onToggle={onToggle} />
 

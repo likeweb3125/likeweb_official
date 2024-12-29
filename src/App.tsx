@@ -1,4 +1,4 @@
-import { BrowserRouter, Outlet, Route, Routes } from "react-router";
+import { BrowserRouter, Outlet, Route, Routes, useLocation } from "react-router";
 import Home from "@/pages/home/Home";
 import Work from "@/pages/work/Work";
 import Solution from "@/pages/solution/Solution";
@@ -7,11 +7,13 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
 const Layout = () => {
+    const pathname = useLocation().pathname;
+    const isVisibleFooter = ["/work", "/solution", "/contact"].includes(pathname);
     return (
         <div>
             <Header />
             <Outlet />
-            <Footer />
+            {isVisibleFooter ? <Footer /> : null}
         </div>
     );
 };

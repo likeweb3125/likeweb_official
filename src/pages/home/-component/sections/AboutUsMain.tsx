@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useRef } from "react";
 import Section from "../Section";
 import bg from "@/assets/images/main_bg.png";
 import uiuxIcon from "@/assets/images/ic_uiux.svg";
@@ -18,13 +18,13 @@ import bubble from "@/assets/images/main_title_bubble_orange.svg";
 import start from "@/assets/images/ic_start_circle_orange.svg";
 
 type SectionProps = {
-    onToggle: (section: any) => void;
+    onToggle?: (section: any) => void;
 };
 
 const AboutUsMain = forwardRef<HTMLDivElement, SectionProps>(({ onToggle }, ref) => {
     return (
-        <div ref={ref}>
-            <Section id="aboutusmain" bg={bg} className="relative flex flex-1 bg-cover">
+        <div ref={ref} id="aboutus">
+            <Section heading="aboutus" bg={bg} className="relative flex flex-1 bg-cover" onToggle={onToggle}>
                 <div className="flex justify-between flex-1">
                     <div className="relative">
                         <p className="font-Urbanist text-[80px] leading-[80px]">We are</p>

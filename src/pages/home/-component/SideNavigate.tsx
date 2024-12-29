@@ -1,9 +1,13 @@
+import gsap from "gsap";
 import arrowUp from "@/assets/images/arrow_up_black.svg";
+import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
+import { useLocation, useSearchParams } from "react-router";
+gsap.registerPlugin(ScrollToPlugin);
 
 const navigation = [
     {
         number: "01",
-        label: "aboutusmain",
+        hash: ["aboutus", "aboutusinfo"],
         visualTitle: (
             <>
                 About
@@ -14,17 +18,17 @@ const navigation = [
     },
     {
         number: "02",
-        label: "solution",
+        hash: ["solution"],
         visualTitle: <>solution</>,
     },
     {
         number: "03",
-        label: "uiux",
+        hash: ["uiux"],
         visualTitle: <>UI/UX</>,
     },
     {
         number: "04",
-        label: "whatwedo",
+        hash: ["whatwedo"],
         visualTitle: (
             <>
                 What
@@ -34,7 +38,7 @@ const navigation = [
     },
     {
         number: "05",
-        label: "withlikeweb",
+        hash: ["withlikeweb"],
         visualTitle: (
             <>
                 With
@@ -43,37 +47,37 @@ const navigation = [
         ),
     },
 ];
+
 export default function SideNavigate({
-    activeSection,
-    // setCurrentSection,
-    // scrollTo,
+    // activeSection,
+    scrollTo,
+    targetSection,
     setTargetSection,
 }: {
-    activeSection: string;
-    // setCurrentSection?: React.Dispatch<React.SetStateAction<string>>;
-    setTargetSection: React.Dispatch<React.SetStateAction<string>>;
-    // scrollTo: (el: string) => void;
+    setTargetSection: React.Dispatch<React.SetStateAction<string[] | string | null>>;
+    targetSection: string[] | string | null;
+    scrollTo: (el: string[], action: string) => void;
 }) {
+    const [searchParams, setSearchParams] = useSearchParams();
+    const target = searchParams.get("target");
+
     return (
         <div className="fixed left-[12px] top-1/2 -translate-y-1/2 z-[2] flex flex-col items-center gap-[20px]">
             <ul className="flex flex-col gap-[8px]">
-                {navigation.map(nav => {
-                    const style = activeSection == nav.label ? "bg-[#FD5B1D] border-[#FD5B1D] text-white" : "bg-[#F8F8F8] border-black";
+                {navigation.map((nav, index) => {
+                    const style = nav.hash.includes(target!) ? "bg-[#FD5B1D] border-[#FD5B1D] text-white" : "bg-[#F8F8F8] border-black";
 
                     return (
-                        <a
-                            href={`#${nav.label}`}
+                        <li
                             key={nav.number}
-                            // onClick={() => setTargetSection(nav.label)}
-                            // onClick={e => {
-                            //     e.preventDefault();
-                            //     scrollTo(nav.label);
-                            // }}
+                            onClick={e => {
+                                scrollTo(nav.hash, "CLICK");
+                            }}
                             className={`rounded-[12px] border px-[10px] py-[20px] cursor-pointer ${style}`}
                         >
                             <p className="font-Urbanist text-[18px] leading-[29px]">{nav.number}</p>
                             <p className="font-Urbanist text-[15px] mt-[24px]">{nav.visualTitle}</p>
-                        </a>
+                        </li>
                     );
                 })}
             </ul>

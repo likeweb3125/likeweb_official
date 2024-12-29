@@ -3,9 +3,9 @@ import footerBg from "@/assets/images/bg_footer.png";
 import logo from "@/assets/images/logo_bk.png";
 import arrowUp from "@/assets/images/arrow_up_white.svg";
 
-export default function Footer() {
+export default function Footer({ className }: { className?: string }) {
     return (
-        <footer>
+        <footer className={className}>
             <div className="bg-cover w-full h-[697px]" style={{ backgroundImage: `url(${footerBg})` }}></div>
             <div className="px-[40px] py-[60px] bg-[linear-gradient(180deg,#333333_0%,#000000_65.39%)]">
                 <div className="flex justify-between border-b border-[#FFFFFF1F] pb-[20px]">

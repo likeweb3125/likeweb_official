@@ -7,7 +7,7 @@ import bgAboutUs3 from "@/assets/images/bg_aboutus_03.png";
 import bgAboutUs4 from "@/assets/images/bg_aboutus_04.png";
 
 type SectionProps = {
-    onToggle: (section: any) => void;
+    onToggle?: (section: any) => void;
 };
 
 const AboutUsInfo = forwardRef<HTMLDivElement, SectionProps>(({ onToggle }, ref) => {
@@ -17,9 +17,9 @@ const AboutUsInfo = forwardRef<HTMLDivElement, SectionProps>(({ onToggle }, ref)
     const card4Ref = useRef<HTMLDivElement | null>(null);
 
     return (
-        <div ref={ref}>
+        <div ref={ref} id="aboutusinfo">
             <Section
-                id="aboutusinfo"
+                heading="aboutusinfo"
                 bg={bgAboutUs1}
                 onToggle={onToggle}
                 className="bg-fixed bg-no-repeat bg-cover relative flex-1 flex justify-between"

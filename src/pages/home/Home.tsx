@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import SideNavigate from "./-component/SideNavigate";
 import AboutUsMain from "./-component/sections/AboutUsMain";
 import AboutUsInfo from "./-component/sections/AboutUsInfo";
@@ -7,7 +7,6 @@ import UiUx from "./-component/sections/UiUx";
 import WhatWeDo from "./-component/sections/WhatWeDo";
 import WithLikeweb from "./-component/sections/WithLikeweb";
 import HoomFooter from "./-component/sections/HomeFooter";
-import { useSearchParams } from "react-router";
 
 const containerStyle = (
     <style>
@@ -28,9 +27,19 @@ const containerStyle = (
     </style>
 );
 
+const SectionContext = createContext<any | undefined>(undefined);
+
+export const useFullPageSection = () => {
+    const context = useContext(SectionContext);
+    if (!context) {
+        throw new Error("useComplaint must be used within a ComplaintProvider");
+    }
+    return context;
+};
+
 export default function Home() {
-    const [targetSection, setTargetSection] = useState<string[] | string | null>(null);
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [currentSection, setCurrentSection] = useState<string[] | string>("aboutus");
+    const [clicked, setClicked] = useState<string | null>(null);
     // const aboutusmain = useRef<HTMLDivElement | null>(null);
     const aboutus = useRef<HTMLDivElement | null>(null);
     const solution = useRef<HTMLDivElement | null>(null);
@@ -45,47 +54,34 @@ export default function Home() {
         whatwedo,
         withlikeweb,
     };
-    // const clicked = searchParams.get("clicked");
-    // const target = searchParams.get("target");
 
-    const scrollTo = (sectionHeading: string[], action: string) => {
+    const scrollTo = (sectionHeading: string[]) => {
         const section = sectionHeading.includes("aboutusinfo") ? "aboutus" : sectionHeading.toString();
-
         const selectedRef = refs[section]; // 문자열에 따라 ref 선택
         if (selectedRef.current) {
-            selectedRef?.current?.scrollIntoView({ behavior: "auto" });
+            selectedRef?.current?.scrollIntoView({ behavior: "smooth" });
         }
     };
 
-    // 스크롤 이벤트로 페이지 전환 됐을 때 실행되는 함수
-    const onToggle = (sectionHeading: string, clicked?: string) => {
-        // scrollTo([sectionHeading], "TOGGLE");
-        // return;
-
-        const section = sectionHeading === "aboutusinfo" ? "aboutus" : sectionHeading;
-
-        setSearchParams({ target: section });
-    };
+    useEffect(() => {
+        if (clicked === currentSection) {
+            setClicked(null);
+        }
+    }, [clicked, currentSection]);
 
     return (
-        <div className="container">
-            {containerStyle}
-            <SideNavigate targetSection={targetSection} setTargetSection={setTargetSection} scrollTo={scrollTo} />
-
-            <AboutUsMain ref={aboutus} onToggle={onToggle} />
-
-            {/* <AboutUsInfo ref={aboutusRef} /> */}
-            <AboutUsInfo onToggle={onToggle} />
-
-            <Solution ref={solution} onToggle={onToggle} />
-
-            <UiUx ref={uiux} onToggle={onToggle} />
-
-            <WhatWeDo ref={whatwedo} onToggle={onToggle} />
-
-            <WithLikeweb ref={withlikeweb} onToggle={onToggle} />
-
-            <HoomFooter />
-        </div>
+        <SectionContext.Provider value={{ currentSection, setCurrentSection, clicked, setClicked }}>
+            <div className="container">
+                {containerStyle}
+                <SideNavigate scrollTo={scrollTo} />
+                <AboutUsMain ref={aboutus} />
+                <AboutUsInfo />
+                <Solution ref={solution} />
+                <UiUx ref={uiux} />
+                <WhatWeDo ref={whatwedo} />
+                <WithLikeweb ref={withlikeweb} />
+                <HoomFooter />
+            </div>
+        </SectionContext.Provider>
     );
 }

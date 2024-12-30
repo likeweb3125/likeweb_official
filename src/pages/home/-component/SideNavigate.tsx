@@ -1,8 +1,5 @@
-import gsap from "gsap";
 import arrowUp from "@/assets/images/arrow_up_black.svg";
-import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
-import { useLocation, useSearchParams } from "react-router";
-gsap.registerPlugin(ScrollToPlugin);
+import { useFullPageSection } from "../Home";
 
 const navigation = [
     {
@@ -48,30 +45,24 @@ const navigation = [
     },
 ];
 
-export default function SideNavigate({
-    // activeSection,
-    scrollTo,
-    targetSection,
-    setTargetSection,
-}: {
-    setTargetSection: React.Dispatch<React.SetStateAction<string[] | string | null>>;
-    targetSection: string[] | string | null;
-    scrollTo: (el: string[], action: string) => void;
-}) {
-    const [searchParams, setSearchParams] = useSearchParams();
-    const target = searchParams.get("target");
+export default function SideNavigate({ scrollTo }: { scrollTo: (el: string[]) => void }) {
+    const { currentSection, setCurrentSection, clicked, setClicked } = useFullPageSection();
 
     return (
         <div className="fixed left-[12px] top-1/2 -translate-y-1/2 z-[2] flex flex-col items-center gap-[20px]">
             <ul className="flex flex-col gap-[8px]">
                 {navigation.map((nav, index) => {
-                    const style = nav.hash.includes(target!) ? "bg-[#FD5B1D] border-[#FD5B1D] text-white" : "bg-[#F8F8F8] border-black";
+                    const target = clicked ? clicked : currentSection;
+                    const isActive = nav.hash.includes(target!);
+                    const style = isActive ? "bg-[#FD5B1D] border-[#FD5B1D] text-white" : "bg-[#F8F8F8] border-black";
 
                     return (
                         <li
                             key={nav.number}
                             onClick={e => {
-                                scrollTo(nav.hash, "CLICK");
+                                const section = nav.hash.includes("aboutusinfo") ? "aboutus" : nav.hash.toString();
+                                setClicked(section);
+                                scrollTo(nav.hash);
                             }}
                             className={`rounded-[12px] border px-[10px] py-[20px] cursor-pointer ${style}`}
                         >

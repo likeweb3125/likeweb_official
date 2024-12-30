@@ -2,6 +2,7 @@ import gsap from "gsap";
 import { ReactNode, useEffect, useRef } from "react";
 import { twMerge } from "tailwind-merge";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useFullPageSection } from "../Home";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,6 +19,7 @@ export default function Section({ heading, bg, className, children, onToggle, ta
     const headingRef = useRef<HTMLHeadingElement | null>(null);
     // React.createElement를 사용하여 동적으로 태그 생성
     const Wrapper = tag;
+    const { setCurrentSection } = useFullPageSection();
 
     useEffect(() => {
         gsap.fromTo(
@@ -35,12 +37,11 @@ export default function Section({ heading, bg, className, children, onToggle, ta
                     trigger: headingRef.current,
                     start: "top 60%",
                     end: "bottom 0%",
-                    // start: "top 50%",
-                    // end: "bottom 10%",
                     toggleActions: "Play none restart reverse",
                     onToggle: self => {
                         if (self.isActive) {
-                            onToggle && onToggle(self.trigger?.innerHTML);
+                            // onToggle && onToggle(self.trigger?.innerHTML);
+                            setCurrentSection(self.trigger?.innerHTML);
                         }
                     },
                     // onToggle: self => console.log("toggled, self:", self.trigger?.innerHTML),
@@ -48,7 +49,7 @@ export default function Section({ heading, bg, className, children, onToggle, ta
                     // onUpdate: self => {
                     //     console.log("progress:", self.progress.toFixed(3), "direction:", self.direction, "velocity", self.getVelocity());
                     // },
-                    markers: true,
+                    // markers: true,
                 },
             },
         );

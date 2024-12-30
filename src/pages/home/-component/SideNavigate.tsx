@@ -45,7 +45,7 @@ const navigation = [
     },
 ];
 
-export default function SideNavigate({ scrollTo }: { scrollTo: (el: string[]) => void }) {
+export default function SideNavigate({ scrollTo, topElement }: { scrollTo: (el: string[]) => void; topElement: any }) {
     const { currentSection, setCurrentSection, clicked, setClicked } = useFullPageSection();
 
     return (
@@ -72,9 +72,14 @@ export default function SideNavigate({ scrollTo }: { scrollTo: (el: string[]) =>
                     );
                 })}
             </ul>
-            <li onClick={() => {}} className="w-[48px] h-[48px] flex justify-center items-center">
+            <button
+                type="button"
+                title="상단으로 이동"
+                onClick={() => topElement.current.scrollIntoView({ behavior: "smooth" })}
+                className="w-[48px] h-[48px] flex justify-center items-center"
+            >
                 <img src={arrowUp} alt="" />
-            </li>
+            </button>
         </div>
     );
 }

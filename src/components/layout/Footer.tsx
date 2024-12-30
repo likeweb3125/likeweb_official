@@ -3,7 +3,7 @@ import footerBg from "@/assets/images/bg_footer.png";
 import logo from "@/assets/images/logo_bk.png";
 import arrowUp from "@/assets/images/arrow_up_white.svg";
 
-export default function Footer({ className }: { className?: string }) {
+export default function Footer({ topElement, className }: { topElement?: any; className?: string }) {
     return (
         <footer className={className}>
             <div className="bg-cover w-full h-[697px]" style={{ backgroundImage: `url(${footerBg})` }}></div>
@@ -18,10 +18,15 @@ export default function Footer({ className }: { className?: string }) {
                             likeweb
                         </Link>
                     </h1>
-                    <a href="#aboutusmain" className="text-white font-[700] text-[28px] font-Urbanist flex items-center gap-[16px]">
+                    <button
+                        type="button"
+                        title="상단으로 이동"
+                        onClick={() => topElement.current.scrollIntoView({ behavior: "smooth" })}
+                        className="text-white font-[700] text-[28px] font-Urbanist flex items-center gap-[16px]"
+                    >
                         Back to top
                         <img src={arrowUp} alt="" width={24} height={24} />
-                    </a>
+                    </button>
                 </div>
                 <div className="flex justify-between pt-[20px]">
                     <div className="text-[#999999] text-[18px] [&_p]:leading-[32px]">

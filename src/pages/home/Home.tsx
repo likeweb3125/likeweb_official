@@ -73,14 +73,14 @@ export default function Home() {
         <SectionContext.Provider value={{ currentSection, setCurrentSection, clicked, setClicked }}>
             <div className="container">
                 {containerStyle}
-                <SideNavigate scrollTo={scrollTo} />
+                <SideNavigate scrollTo={scrollTo} topElement={aboutus} />
                 <AboutUsMain ref={aboutus} />
                 <AboutUsInfo />
                 <Solution ref={solution} />
                 <UiUx ref={uiux} />
                 <WhatWeDo ref={whatwedo} />
                 <WithLikeweb ref={withlikeweb} />
-                <HoomFooter />
+                <HoomFooter topElement={aboutus} />
             </div>
         </SectionContext.Provider>
     );

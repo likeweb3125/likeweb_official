@@ -224,7 +224,7 @@ const UiUx = forwardRef<HTMLDivElement, SectionProps>(({ onToggle }, ref) => {
                                         </p>
                                     </div>
                                     <div className="transition-all duration-[0.5s] translate-y-[80px] group-hover:-translate-y-0 flex">
-                                        <img src={service.img} alt={service.title} width={350} />
+                                        <img src={service.img} alt={service.title} width={350} loading="lazy" />
                                     </div>
                                 </div>
                             </li>
@@ -239,55 +239,53 @@ const UiUx = forwardRef<HTMLDivElement, SectionProps>(({ onToggle }, ref) => {
                         현실로 만드는 힘.
                     </h3>
 
-                    <div className="">
-                        <Swiper
-                            slidesPerView="auto"
-                            centeredSlides
-                            loop
-                            autoplay={{
-                                delay: 4000,
-                            }}
-                            spaceBetween={40}
-                            speed={1000}
-                            pagination={{
-                                type: "fraction",
-                                // clickable: true,
-                                renderFraction(currentClass, totalClass) {
-                                    return `
-                                        <div>
-                                            <span class="${currentClass}"></span>
-                                            <span class="bar"></span>
-                                            <span class="${totalClass}"></span>
-                                        </div>
-                                    `;
-                                },
-                            }}
-                            // freeMode
-                            modules={[Pagination, Autoplay]}
-                            className={slideStyles}
-                        >
-                            {slidesList.map((slide, index) => {
-                                return (
-                                    <SwiperSlide key={index} className="max-w-[1300px] relative pt-[260px] relative">
-                                        <div
-                                            style={{ backgroundImage: `url(${slide.bg})` }}
-                                            className="min-h-[480px] bg-no-repeat bg-cover flex"
-                                        >
-                                            <div className="text-white pl-[80px] pb-[40px] mt-auto">
-                                                <p className="text-[22px]">{slide.date}</p>
-                                                <div className="text-[60px] leading-[60px] font-[700] flex gap-[70px] items-center mt-[20px] mb-[28px]">
-                                                    {slide.projectName}
-                                                    <img src={arrowWhite} alt="" width={22} height={22} />
-                                                </div>
-                                                <p className="text-[18px]">{slide.projectDescription}</p>
+                    <Swiper
+                        slidesPerView="auto"
+                        centeredSlides
+                        loop
+                        autoplay={{
+                            delay: 4000,
+                        }}
+                        spaceBetween={40}
+                        speed={1000}
+                        pagination={{
+                            type: "fraction",
+                            // clickable: true,
+                            renderFraction(currentClass, totalClass) {
+                                return `
+                                    <div>
+                                        <span class="${currentClass}"></span>
+                                        <span class="bar"></span>
+                                        <span class="${totalClass}"></span>
+                                    </div>
+                                `;
+                            },
+                        }}
+                        // freeMode
+                        modules={[Pagination, Autoplay]}
+                        className={slideStyles}
+                    >
+                        {slidesList.map((slide, index) => {
+                            return (
+                                <SwiperSlide key={index} className="max-w-[1300px] relative pt-[260px] relative">
+                                    <div
+                                        style={{ backgroundImage: `url(${slide.bg})` }}
+                                        className="min-h-[480px] bg-no-repeat bg-cover flex"
+                                    >
+                                        <div className="text-white pl-[80px] pb-[40px] mt-auto">
+                                            <p className="text-[22px]">{slide.date}</p>
+                                            <div className="text-[60px] leading-[60px] font-[700] flex gap-[70px] items-center mt-[20px] mb-[28px]">
+                                                {slide.projectName}
+                                                <img src={arrowWhite} alt="" width={22} height={22} />
                                             </div>
-                                            <img src={slide.img} alt={slide.projectName} className="absolute right-0 bottom-0" />
+                                            <p className="text-[18px]">{slide.projectDescription}</p>
                                         </div>
-                                    </SwiperSlide>
-                                );
-                            })}
-                        </Swiper>
-                    </div>
+                                        <img src={slide.img} alt={slide.projectName} loading="lazy" className="absolute right-0 bottom-0" />
+                                    </div>
+                                </SwiperSlide>
+                            );
+                        })}
+                    </Swiper>
                 </div>
             </Section>
         </div>

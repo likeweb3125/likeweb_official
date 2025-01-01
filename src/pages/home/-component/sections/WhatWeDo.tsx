@@ -9,8 +9,8 @@ type SectionProps = {
 const WhatWeDo = forwardRef<HTMLDivElement, SectionProps>(({ onToggle }, ref) => {
     return (
         <div ref={ref} id="whatwedo">
-            <Section heading="whatwedo" className="bg-cover pb-[500px]" bg={bgWhatWeDo} onToggle={onToggle}>
-                <div className="leaindg-[90px] text-[56px] font-[700] text-center w-[410] mx-auto">
+            <Section heading="whatwedo" className="bg-cover p-[0_0_500px]" bg={bgWhatWeDo} onToggle={onToggle}>
+                <div className="sticky top-[160px] leaindg-[90px] text-[56px] font-[700] text-center w-[410] mx-auto">
                     <p className="text-[#FD5B1D] text-[24px] font-[500] leading-[28px]">라이크웹은 지금,</p>
                     <span className="text-[#FD5B1D]">고객님</span>들에게 필요한
                     <br />

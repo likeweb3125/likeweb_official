@@ -32,7 +32,7 @@ const SectionContext = createContext<any | undefined>(undefined);
 export const useFullPageSection = () => {
     const context = useContext(SectionContext);
     if (!context) {
-        throw new Error("useComplaint must be used within a ComplaintProvider");
+        throw new Error("useFullPageSection must be used within a ComplaintProvider");
     }
     return context;
 };
